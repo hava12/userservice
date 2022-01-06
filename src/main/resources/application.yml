@@ -1,0 +1,10 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: USER-SERVICE
+eureka:
+  client:
+    eureka-server-port: 8761
+  instance:
+    appname: USER-SERVICE
