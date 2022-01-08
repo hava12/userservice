@@ -12,6 +12,12 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 
+	@GetMapping("/health")
+	public ResponseEntity<String> health() {
+		System.out.println("user-service is alive");
+		return new ResponseEntity<String>("ok", HttpStatus.ACCEPTED );
+	}
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Map<String, String> req) {
         System.out.println("req = " + req);
