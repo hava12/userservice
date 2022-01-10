@@ -6,6 +6,7 @@ import com.petbook.userservice.v1.model.entity.UserEntity;
 import com.petbook.userservice.v1.model.mapper.UserRequestMapper;
 import com.petbook.userservice.v1.model.mapper.UserResponseMapper;
 import com.petbook.userservice.v1.model.repository.UserRepository;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,19 @@ public class UserService {
 		UserEntity resEntity = userRepository.save(userEntity);
 		System.out.println("resEntity = " + resEntity);
 		return userResponseMapper.toDto(resEntity);
+	}
+
+	public UserResponse selectUserOne(UserRequest userRequest) {
+		UserEntity userEntity = userRequestMapper.toEntity(userRequest);
+		System.out.println("userEntity = " + userEntity);
+
+		Optional<UserEntity> resEntityOptional = userRepository.findByUserIdAndPassword(userEntity.getUserId(), userEntity.getPassword());
+
+		if(resEntityOptional.isEmpty()) {
+			return null;
+		}
+
+		System.out.println("resEntity = " + resEntityOptional.get());
+		return userResponseMapper.toDto(resEntityOptional.get());
 	}
 }

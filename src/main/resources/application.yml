@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 0
 spring:
   application:
     name: USER-SERVICE
   # Mysql 설정
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/filming?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://127.0.0.1:3306/petbook?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
     # DB username / password
     username: root
     password: test1357

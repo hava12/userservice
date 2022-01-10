@@ -10,13 +10,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Data
 @NoArgsConstructor
 public class UserEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // AutoIncrement
-	private Long id;
+	private String userId;
 
 	@Column(nullable = false)
 	private String username;

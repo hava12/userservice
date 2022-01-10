@@ -22,11 +22,20 @@ public class UserController {
 		return new ResponseEntity<String>("ok", HttpStatus.ACCEPTED );
 	}
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UserRequest userRequest) {
+	@PostMapping("/login")
+	public ResponseEntity<String> login(@RequestBody UserRequest userRequest) {
+		System.out.println("userRequest = " + userRequest);
+		UserResponse userResponse = userService.selectUserOne(userRequest);
+		System.out.println("userResponse = " + userResponse);
+		return new ResponseEntity<String>("ok", HttpStatus.ACCEPTED );
+	}
+
+    @PostMapping("/join")
+    public ResponseEntity<String> join(@RequestBody UserRequest userRequest) {
         System.out.println("userRequest = " + userRequest);
         UserResponse userResponse = userService.saveUser(userRequest);
 		System.out.println("userResponse = " + userResponse);
         return new ResponseEntity<String>("ok", HttpStatus.ACCEPTED );
     }
+
 }
