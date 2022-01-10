@@ -1,4 +1,4 @@
-package com.filming.userservice.v1.model.mapper;
+package com.petbook.userservice.v1.model.mapper;
 
 import org.mapstruct.BeanMapping;
 import org.mapstruct.MappingTarget;

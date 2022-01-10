@@ -1,10 +1,8 @@
-package com.filming.userservice.v1.controller;
+package com.petbook.userservice.v1.controller;
 
-import com.filming.userservice.v1.model.dto.UserRequest;
-import com.filming.userservice.v1.model.dto.UserResponse;
-import com.filming.userservice.v1.model.entity.UserEntity;
-import com.filming.userservice.v1.model.mapper.UserRequestMapper;
-import com.filming.userservice.v1.service.UserService;
+import com.petbook.userservice.v1.model.dto.UserRequest;
+import com.petbook.userservice.v1.model.dto.UserResponse;
+import com.petbook.userservice.v1.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

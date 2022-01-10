@@ -1,4 +1,4 @@
-package com.filming.userservice;
+package com.petbook.userservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

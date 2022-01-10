@@ -1,11 +1,11 @@
-package com.filming.userservice.v1.service;
+package com.petbook.userservice.v1.service;
 
-import com.filming.userservice.v1.model.dto.UserRequest;
-import com.filming.userservice.v1.model.dto.UserResponse;
-import com.filming.userservice.v1.model.entity.UserEntity;
-import com.filming.userservice.v1.model.mapper.UserRequestMapper;
-import com.filming.userservice.v1.model.mapper.UserResponseMapper;
-import com.filming.userservice.v1.model.repository.UserRepository;
+import com.petbook.userservice.v1.model.dto.UserRequest;
+import com.petbook.userservice.v1.model.dto.UserResponse;
+import com.petbook.userservice.v1.model.entity.UserEntity;
+import com.petbook.userservice.v1.model.mapper.UserRequestMapper;
+import com.petbook.userservice.v1.model.mapper.UserResponseMapper;
+import com.petbook.userservice.v1.model.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.filming.userservice.v1.model.dto;
+package com.petbook.userservice.v1.model.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.filming.userservice.v1.model.entity;
+package com.petbook.userservice.v1.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.filming.userservice;
+package com.petbook.userservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
