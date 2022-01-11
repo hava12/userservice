@@ -40,4 +40,16 @@ public class UserService {
 		System.out.println("resEntity = " + resEntityOptional.get());
 		return userResponseMapper.toDto(resEntityOptional.get());
 	}
+
+	public UserResponse selectUserById(String userId) {
+
+		Optional<UserEntity> resEntityOptional = userRepository.findByUserId(userId);
+
+		if(resEntityOptional.isEmpty()) {
+			return null;
+		}
+
+		System.out.println("resEntity = " + resEntityOptional.get());
+		return userResponseMapper.toDto(resEntityOptional.get());
+	}
 }
