@@ -6,13 +6,18 @@ import com.petbook.userservice.v1.model.entity.UserEntity;
 import com.petbook.userservice.v1.model.mapper.UserRequestMapper;
 import com.petbook.userservice.v1.model.mapper.UserResponseMapper;
 import com.petbook.userservice.v1.model.repository.UserRepository;
+import java.util.ArrayList;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements UserDetailsService {
 
 	private final UserRequestMapper userRequestMapper;
 	private final UserResponseMapper userResponseMapper;
@@ -51,5 +56,17 @@ public class UserService {
 
 		System.out.println("resEntity = " + resEntityOptional.get());
 		return userResponseMapper.toDto(resEntityOptional.get());
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Optional<UserEntity> userEntity = userRepository.findByUserId(username);
+
+		if(!userEntity.isPresent()) {
+			throw new UsernameNotFoundException(username);
+		}
+
+		return new User(userEntity.get().getUserId(), userEntity.get().getPassword(), true, true, true, true, new ArrayList<>());
+
 	}
 }
