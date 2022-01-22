@@ -3,7 +3,6 @@ package com.petbook.userservice.config.security;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.petbook.userservice.v1.model.dto.UserRequest;
 import com.petbook.userservice.v1.model.dto.UserResponse;
-import com.petbook.userservice.v1.model.entity.UserEntity;
 import com.petbook.userservice.v1.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
