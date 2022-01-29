@@ -22,6 +22,36 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * UsernamePasswordAuthenticationFilter란 ?
+ *
+ * LoginForm인증 절차
+ *
+ * -------------------------------------------------------------------------------------------------------------
+ *
+ *   usernamePasswordAuthenticationFilter <---------------------------------------------------------------------ㄱ
+ *                  |                                                                                            |
+ *                  |                           No                                                               |
+ *        AntPathRequestMatcher(/**)            -->    chain.doFilter                                            |
+ *                  |                                                                                            |
+ *                  | Yes                                                                                        |
+ *   Authentication(Username + Password)                                                                         |
+ *                  |                                                                                            |
+ *                  |                           위임                                        인증실패               |
+ *         AuthenticationManager                -->        AuthenticationProvider           ----->    AuthenticationException
+ *                  |                           <--
+ *                  |                           인증 성공
+ *   Authentication(User + Authorities)
+ *                  |
+ *                  |
+ *         SecurityContext에 저장
+ *                  |
+ *                  |
+ *            SuccessHandler
+ *
+ */
+
+
 @Slf4j
 @RequiredArgsConstructor
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -34,6 +64,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 		throws AuthenticationException {
 		try {
 			UserRequest cred = new ObjectMapper().readValue(request.getInputStream(), UserRequest.class);
+
+			// 인증 토큰 생성
 			UsernamePasswordAuthenticationToken token =
 				new UsernamePasswordAuthenticationToken(
 					cred.getUserId(),
