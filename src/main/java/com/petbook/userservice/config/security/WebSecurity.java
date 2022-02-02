@@ -2,6 +2,8 @@ package com.petbook.userservice.config.security;
 
 import com.petbook.userservice.v1.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -38,7 +40,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	}
 
 	private AuthenticationFilter getAuthenticationFilter() throws Exception {
-		AuthenticationFilter authenticationFilter = new AuthenticationFilter( userService, env);
+		AuthenticationFilter authenticationFilter = new AuthenticationFilter( userService, env); // UsernamePasswordAuthenticationFilter
 		authenticationFilter.setAuthenticationManager(authenticationManager());
 
 		return authenticationFilter;
@@ -48,4 +50,5 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
 	}
+
 }

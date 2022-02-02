@@ -48,9 +48,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  *                  |
  *                  |
  *            SuccessHandler
- *
  */
-
 
 @Slf4j
 @RequiredArgsConstructor
